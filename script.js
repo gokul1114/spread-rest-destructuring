@@ -78,15 +78,19 @@ function groupBy(arr, func) {
          console.log(a)
     }
     else{
-        
-        console.log("hi")
-    }
+        a = arr.reduce((result, cur) =>{
+            result[cur[func]] = result[cur[func]] || [];
+            result[cur[func]].push(cur)
+            return result;
+        }, {});   
+    console.log(a)
+}
+    
 }
 
 intersection(a,b)
 unique(a)
 without(a,1,3,57)
 groupBy([6.1, 4.2, 6.3], Math.floor)
-
-// //groupBy(['one', 'two', 'three'], 'length');
+groupBy(['one', 'two', 'three'], 'length');
   
