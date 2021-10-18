@@ -56,10 +56,37 @@ function without(a,...b) {
         }
     }))
 }
-//end-here
-//console.log([...new Set(a)])
-//intersection(a.filter((i,index) => a.indexOf(i) == index),b)
+
+function groupBy(arr, func) {
+
+    if((typeof func).toString() == 'function') {
+         a = arr.reduce((result, cur )=> { 
+         val = func(cur)
+         if(result[val] !== undefined){
+             result[val] = [...(result[val]),cur];
+             return result;
+         }
+         else{
+          
+            obj = {}
+            obj[val] = [cur];
+             result = {...result, ...obj}
+
+             return result
+         }
+         },{})
+         console.log(a)
+    }
+    else{
+        
+        console.log("hi")
+    }
+}
+
 intersection(a,b)
 unique(a)
 without(a,1,3,57)
+groupBy([6.1, 4.2, 6.3], Math.floor)
+
+// //groupBy(['one', 'two', 'three'], 'length');
   
