@@ -93,4 +93,33 @@ unique(a)
 without(a,1,3,57)
 groupBy([6.1, 4.2, 6.3], Math.floor)
 groupBy(['one', 'two', 'three'], 'length');
+
+class Bank{
+    constructor(balance,name) {
+        this.bal = balance;
+        this.name = name;
+    }
+    
+    exception(message) {
+        console.log(message)
+    }
+    getBalance() {
+        console.log("your balance is " + this.bal)
+    }
+    withdraw(amnt){
+        this.bal > amnt ? this.bal -= amnt :  this.exception("low balance")
+        this.getBalance()
+    }
+    deposit(amnt){
+        this.bal += amnt;
+        this.getBalance()
+    }
+}
+
+b = new Bank(1000,"gokul")
+b.getBalance()
+b.withdraw(1100)
+b.withdraw(100)
+b.deposit(100)
+
   
